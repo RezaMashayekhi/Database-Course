@@ -1,0 +1,48 @@
+1
+select customerName,count(*) from customers c,orders o
+where c.customerNumber=o.customerNumber and c.country='Canada'
+group by c.customerNumber;
+
+2
+select email,jobTitle from employees e,customers c,orders o, orderdetails od,products p
+where (email,jobTitle) in (
+  select email,jobTitle
+  from employees e1,customers c1
+  where e1.employeeNumber=c1.salesRepEmployeeNumber
+  group by c.salesRepEmployeeNumber
+  having count(*)>=10
+)
+e.employeeNumber=c.salesRepEmployeeNumber and c.customerNumber=o.customerNumber AND o.orderNumber=od.orderNumber AND
+od.productCode=p.productCode AND p.productName='Ray-Ban Clubmaster eyeglasses';
+
+3
+select c.customerNumber,sum(amount) from customers c, payments pa
+where exists(select * from orders o, orderdetails od, products p
+  where c.customerNumber=o.customerNumber and o.orderNumber=od.orderNumber and od.productCode=p.productCode AND productLine='Pepsi')
+and c.customerNumber=pa.customerNumber
+group by c.customerNumber
+order by sum(amount) desc;
+
+4
+SELECT pl.*
+FROM orders o,customers c,employees e, offices o,  orderdetails od,products p,productlines pl
+where pl.productline=p.productline and p.productCode=od.productCode AND priceEach=100 and od.orderNumber=o.orderNumber
+and o.customerNumber=c.customerNumber AND country='Iran'
+and salesRepEmployeeNumber=employeeNumber and e.officeCode=o.officeCode AND o.city='Frankfurt';
+
+5
+SELECT c.customerNumber,SUM(amount) FROM customers c ,payments p
+where c.customerNumber in(select c1.customerNumber from customers c1 ,orders o1
+        where c1.customerNumber=o1.customerNumber and c1.city='new york' AND shippedDate='2018-02-10 00:00:00')
+
+and c.customerNumber=p.customerNumber AND p.paymentDate='2018-03-12 00:00:00'
+group by sum(amount);
+
+6
+INSERT INTO payments VALUES ('52','3567-530','2018-04-22 00:00:00','200');
+
+7
+UPDATE orderdetails
+SET quantityOrdered='50'
+WHERE orderNumber in (SELECT * FROM orders o,orderdetails od,products p where o.orderNumber = od.orderNumber AND customerNumber = '67' and p.productCode = od.productCode AND productLine = 'x' AND p.productCode = '1567') 
+  ) AND productCode='1567';

@@ -1,0 +1,34 @@
+1
+ 
+2
+CREATE VIEW v AS
+SELECT event.title, pictures.full_path, photographer.full_name,countries.name, dynasty
+FROM (((event JOIN pictures on event.eid = pictures.event_id)
+LEFT JOIN photographer ON pictures.taken_by=photographer.phid)
+join countries ON event.country_id=countries.cid);
+
+3
+create trigger t AFTER DELETE ON countries FOR EACH ROW DELETE
+FROM pictures
+WHERE pid IN (SELECT pid from pictures WHERE event_id IN (SELECT eid FROM event WHERE country_id=countries.cid ));
+
+4
+SELECT * FROM event WHERE country_id IN (SELECT cid FROM countries WHERE name='Iceland') ORDER BY occured_at , title ;
+SELECT dynasty,MIN(occured_at) FROM event WHERE country_id IN (SELECT cid FROM countries WHERE name='Iceland') GROUP BY dynasty;
+
+5
+UPDATE event
+SET dynasty = CASE
+    WHEN dynasty='ghajar' THEN 'ashkanian'
+    WHEN dynasty='ashkanian' THEN 'ghajar'
+    ELSE dynasty
+END;
+
+6
+
+7
+CREATE VIEW v AS
+SELECT photographer.*, pid , event.*
+FROM photographer,event,pictures p  photographer.phid = p.taken_by P.event_id=eid
+     AND country_id IN (SELECT cid FROM countries WHERE name='Mexico');
+SELECT dynasty FROM v GROUP BY dynasty HAVING COUNT(dynasty)>='50';

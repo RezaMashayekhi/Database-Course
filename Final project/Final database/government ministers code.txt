@@ -1,0 +1,52 @@
+#name1 = "<isPoliticianOf>"
+#name2 = "<Iran>"
+politicianList = list()
+file = open("C:\\DB\\Answer\\Tables\\Politicians_table.tsv", "r", encoding="utf-8")
+fileLog = open("C:\\DB\\Answer\\1.tsv", "w+", encoding="utf-8")
+file2= open("C:\\DB\\yagoTypes.tsv", "r", encoding="utf-8")
+file3= open("C:\\DB\\\Answer\\Politicians_Label_nesfe_farsi.tsv", "r", encoding="utf-8")
+file4= open("C:\\DB\\yagoLabels.tsv", "r", encoding="utf-8")
+c = 0
+s = ""
+f=0
+p=""
+
+fileLog.writelines("P_ID"+"\t"+"Name"+"\t"+"Label"+"\n")
+for line in file2:
+    s = ""
+    p = ""
+
+    if ("<wikicat_Government_ministers_of_Iran>" in line):
+        #c = c + 1
+        words = line.split('\t')
+        for line2 in file:
+            if(words[1] in line2):
+                words2= line2.split('\t')
+                s =s +words2[0]+"\t"+ words2[1] +"\t"
+        print(words[0])
+
+        f=0
+        if(s!=""):
+            for line2 in file3:
+                if (words[1] in line2):
+                    words2 = line2.split('\t')
+                    p = words2[3]
+                    f = 1
+                    if ("@fas" in line2):
+                        break
+
+            if (f == 0):
+                s = s + ""
+            else:
+                s = s + p
+            fileLog.write(s + "\n")
+        file3.seek(0)
+        file.seek(0)
+
+    #c = c + 1
+    #if(c==3):
+     #   break
+
+file.close()
+file2.close()
+fileLog.close()

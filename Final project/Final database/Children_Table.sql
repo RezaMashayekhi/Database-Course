@@ -1,0 +1,33 @@
+CREATE TABLE IF NOT EXISTS Children_Table (
+    `CH_ID` VARCHAR(4) CHARACTER SET utf8,
+    `Name` VARCHAR(27) CHARACTER SET utf8,
+    `Label` VARCHAR(23) CHARACTER SET utf8,
+    `Column_4` INT,
+    primary KEY (CH_ID)
+);
+INSERT INTO Children_Table VALUES
+    ('ch1','<Ahmad_Qavam>','احمد قوام السلطنه@fas',NULL),
+    ('ch2','<Mozaffar_Firouz>','مظفر فيروز@fas',NULL),
+    ('ch3','<Mohammad-Javad_Bahonar>','شهید آیت الله باهنر@fas',NULL),
+    ('ch4','<Ali_Khamenei>','علی حسینی خامنه@fas',NULL),
+    ('ch5','<Ali_Jannati>','علي جنتي@fas',NULL),
+    ('ch6','<Faezeh_Hashemi>',NULL,NULL),
+    ('ch7','<Mehdi_Hashemi_Rafsanjani>',NULL,NULL),
+    ('ch8','<Yasser_Hashemi_Rafsanjani>',NULL,NULL),
+    ('ch9','<Mohsen_Hashemi>',NULL,NULL),
+    ('ch10','<Abdolali_Bazargan>',NULL,NULL),
+    ('ch11','<Mahmoud_Ahmadinejad>',NULL,NULL),
+    ('ch12','<Mohammad_Bagher_Ghalibaf>',NULL,NULL),
+    ('ch14','<Mohammad-Javad_Bahonar>',NULL,NULL),
+    ('ch15','<Fazlollah_Zahedi>',NULL,NULL),
+    ('ch16','<Hashemi_Rafsanjani>',NULL,NULL),
+    ('ch17','<Mohammad_Khatami>',NULL,NULL),
+    ('ch19','<Mojtaba_Khamenei>',NULL,NULL),
+    ('ch20','<Ali_Khamenei>',NULL,NULL),
+    ('ch26','<Rezā_Shāh>',NULL,NULL),
+    ('ch27','<Ashraf_Pahlavi>',NULL,NULL),
+    ('ch28','<Mohammad_Ali_Foroughi>',NULL,NULL),
+    ('ch29','<Shams_Pahlavi>',NULL,NULL),
+    ('ch30','<Ali_Reza_Pahlavi_I>',NULL,NULL),
+    ('ch31','<Mohammad_Reza_Pahlavi>',NULL,NULL),
+    ('ch32','<Iran_Teymourtash>',NULL,NULL);

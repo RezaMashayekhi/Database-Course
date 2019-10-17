@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS clerics (
+    `P_ID` VARCHAR(4) CHARACTER SET utf8,
+    `Name` VARCHAR(30) CHARACTER SET utf8,
+    `Label` VARCHAR(30) CHARACTER SET utf8,
+   PRIMARY KEY (P_ID),
+    foreign key (P_ID) REFERENCES Politicians_table(P_ID)
+);
+INSERT INTO clerics VALUES
+    ('p67','<Mostafa_Pourmohammadi>','مصطفي پورمحمدي@fas'),
+    ('p66','<Hassan_Rouhani>','حسن فریدون@fas'),
+    ('p56','<Esmail_Shooshtari>','محمداسماعیل شوشتری@fas'),
+    ('p50','<Ali_Akbar_Mohtashamipur>','علي اكبر محتشمي@fas'),
+    ('p53','<Abdollah_Nouri>','عبدالله نوري@fas'),
+    ('p51','<Mohammad-Javad_Bahonar>','آيت الله دكتر باهنر@fas'),
+    ('p166','<Ghorbanali_Dorri-Najafabadi>','قربانعلی دری نجف ابادی@fas'),
+    ('p167','<Ali_Khamenei>','ایه‌الله خامنه‌ای@fas'),
+    ('p146','<Hashemi_Rafsanjani>','حجت الاسلام هاشمی رفسنجانی@fas'),
+    ('p143','<Ali_Younesi>','علي يونسي@fas'),
+    ('p147','<Ali_Fallahian>','فلاحیان@fas'),
+    ('p129','<Mohammad_Reyshahri>','ری شهری@fas'),
+    ('p247','<Mahmoud_Alavi>','محمود علوي@fas'),
+    ('p232','<Heydar_Moslehi>','حيدر مصلحي@fas'),
+    ('p197','<Gholam-Hossein_Mohseni-Eje''i>','غلامحسين اژه اي@fas'),
+    ('p194','<Mohammad_Khatami>','سید محمدخاتمی@fas'),
+    ('p191','<Ali_Akbar_Nategh-Nouri>','علی‌اکبر ناطق نوری@fas'),
+    ('p183','<Abdolvahed_Mousavi_Lari>','عبدالواحد موسوي لاري@fas');

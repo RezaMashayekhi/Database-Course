@@ -1,0 +1,26 @@
+#name1 = "<isPoliticianOf>"
+#name2 = "<Iran>"
+name3 = "Abbas_Adham"
+politicianList = list()
+file = open("C:\\DB\\Answer\\politicians.tsv", "r", encoding="utf-8")
+fileLog = open("C:\\DB\\Answer\\1.tsv", "w+", encoding="utf-8")
+file2= open("C:\\DB\\yagoTypes.tsv", "r", encoding="utf-8")
+file3= open("C:\\DB\\yagoLabels.tsv", "r", encoding="utf-8")
+file4= open("C:\\DB\\yagoFacts.tsv", "r", encoding="utf-8")
+file5= open("C:\\DB\\yagoConteXtFacts_fa.tsv", "r", encoding="utf-8")
+c = 0
+
+for line in file:
+    words = line.split('\t')
+    print(words[1])
+    for line2 in file3:
+        if (words[1] in line2):
+            fileLog.writelines(line2)
+    file3.seek(0)
+    #c = c + 1
+    #if(c==2):
+    #   break
+
+file.close()
+file3.close()
+fileLog.close()
