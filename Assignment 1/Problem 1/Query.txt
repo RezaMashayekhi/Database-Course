@@ -1,0 +1,51 @@
+1
+select score from team t where t.name="esteghlal" or t.name="perspolis";
+
+2
+select * from match m where (
+
+3
+select * from team 
+order by score 
+limit 1;
+
+4
+select * from team 
+order by score desc
+limit 1;
+
+5
+select coach from team 
+order by score desc
+limit 1;
+
+6
+
+7
+
+8
+
+9
+select name from player where id = 
+(
+   select t.captain_id from team t where t.name = "zob ahan"
+);
+
+10
+select p.name from player p , team t, injury i where p.team_id=t.id and t.name="siah jamegan" and i.player_id=p.id;
+
+11
+select p.name from player p, team t where t.afc=1 and p.post="strike";
+
+12
+select * from player where national=1 order by age 
+limit 1;
+
+13
+select p.name from player p, team t where p.national=1 and p.team_id=t.id and t.name="sepid rood";
+
+14
+select p.name from player p, team t where p.id=t.captain_id;
+
+15
+select * from team where city="tehran" and afc=1;

@@ -1,0 +1,27 @@
+1
+select br.address from branch br, bank ba where br.bank_id=ba.id and ba.name="mellat";
+
+2
+select c.name, c.phone, c.address from customer c, account a where c.id=a.customer_id and a.remain>1000000;
+
+3
+select max(l.value), c.name from customer c, loan l where c.id=l.customer_id order by l.value desc limit 1;
+
+4
+select sum(a.remain) from account a, bank ba, branch br where a.branch_id=br.id and br.bank_id=ba.id and ba.name="refah";
+
+5
+select a.remain from account a, customer c where a.customer_id=c.id and c.name="irani";
+
+6
+select br.address, count(c.*) from branch br, bank ba, customer c, account a where
+ba.name="keshavarzi" and c.id=a.customer_id and a.branch_id=br.id and br.bank_id=ba.id group by br.id;
+
+7
+select distinct l.type from loan l, branch br, bank ba where l.branch_id=br.id and br.bank_id=ba.id and ba.name="maskan";
+
+8
+select count(br.*) from bank ba, branch br where br.bank_id=ba.id and ba.name="ayandeh";
+
+9
+select c.address from account a, customer c, branch br, bank ba where c.id=a.customer_id and a.branch_id=br.id and br.bank_id=ba.id and ba.name="sepah" limit 1;

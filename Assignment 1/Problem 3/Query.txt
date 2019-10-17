@@ -1,0 +1,35 @@
+1
+select max(ticket_price) from concert where loacation="Royal Concert Hall";
+
+2
+select location from concert where ticket_price>200;
+
+3
+select au.* from audience au, attended att where att.cid="c28" and att.auid=au.auid;
+
+4
+select s.* from artist a, song s, concert c, playedin p where a.name="salar aghili" and c.location="milad" and p.sid=s.sid and p.cid=c.cid;
+
+5
+select name from artist where country="russia" order by age desc limit 1;
+
+6
+select avg(au.age) from artist a, song s, concert c, playedin p, audience au, attended att where 
+att.auid=au.auid and att.cid=c.cid and c.cid=p.cid and p.sid=s.sid and s.aid=a.aid and a.name="sirvan khosravi";
+
+7
+select s.title from song s, artist a where s.aid=a.aid and s.genre="pop" and a.name="elvis";
+
+8
+select s.title from song s, artist a where s.aid=a.aid and s.genre="rock" and a.country="iran";
+
+9
+select sum(c.ticket_price) from concert c,attended att where c.location="milad" and att.cid=c.cid;
+
+10
+select au.full_name from  concert c, audience au, attended att where
+ au.auid=att.auid and att.cid=c.cid and c.year=2010;
+
+11
+select count(au.*) from artist a, song s, concert c, playedin p, audience au, attended att where 
+att.auid=au.auid and att.cid=c.cid and c.cid=p.cid and p.sid=s.sid and s.aid=a.aid and a.name="mohsen yegane" and s.title="hobab";

@@ -1,0 +1,4 @@
+team( id: INT, name: TEXT, coach: TEXT, afc: BOOL, score: INT, city: TEXT, captain_id: INT)
+game( id: INT, h_goals: INT, g_goals: INT, date: TEXT, g_team: INT, h_team: INT)
+player( id: INT, name: TEXT, age: INT, post: TEXT, national: BOOL, team_id: INT)
+injury( id: INT, player_id: INT, name:TEXT)
