@@ -1,7 +1,7 @@
 # Final project of Database course
 
-Extracted data from raw files on [MAX PLANK INSTITUTE WEBSITE](https://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/yago-naga/yago/downloads/).
+Conducted data extraction from raw files available on the website of the Max Planck Institute (https://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/yago-naga/yago/downloads/), using Python.
 
-Processed and Clustered TSV files with Python and MySQL.
+Employed Python and MySQL to preprocess and cluster the extracted TSV files, ensuring the accuracy and completeness of the data.
 
-Designed and created a 3NF databese.
+Designed and developed a 3NF database to efficiently store, manage and retrieve the processed data, optimizing the data accessibility and analysis.
